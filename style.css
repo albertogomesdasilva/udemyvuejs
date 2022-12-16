@@ -1,0 +1,16 @@
+p {
+    color: orangered;
+}
+
+href {
+    color: orange;
+}
+
+input{
+    color:blue;
+    
+    background-color: aqua;
+}
+.container{
+    margin-top: 50px;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap.min.css" />
+    <link rel="stylesheet" href="./bootstrap.min.css.map" />
+    <link rel="stylesheet"  href="./style.css" />
+    <script src="./vue.js"></script>
+    <title>Ciclo de Vida do Vue</title>
+</head>
+<body>
+    <h2>Life Cicle</h2>
+    
+    <div id="app" class="container">
+
+        <h2>  {{ name }} </h2>
+        <ul>
+            <li v-for="state in states"> {{ state.id  }} - {{ state.nome }} - SIGLA:  {{ state.sigla }}</li>
+        </ul>
+
+        <hr>
+        
+    </div>
+    <script>
+        const app = new Vue ({
+            el: '#app',
+
+            data: {
+                name: 'Curso de VueJs',
+                states: []
+            },
+            beforeCreate() {
+                console.log('beforeCreate')
+            },
+            created() {
+                 fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
+                 .then(response => {
+                    response.json().then(data => {
+                        this.states = data
+                    })
+                 }).catch(err => {
+                    console.log(err)
+                 })
+            },
+            beforeMount() {
+                console.log('beforeMount')
+            },
+            mounted() {
+                console.log('mounted')
+            },
+            beforeUpdate() {
+                console.log('beforeUpdate')
+            },
+            updated() {
+                console.log('updated')
+            },
+            beforeDestroy() {
+                console.log('beforeDestroy')
+            },
+            destroyed() {
+                console.log('destroyed')
+            },
+
+
+        })
+
+
+    </script>
+    
+</body>
+</html>

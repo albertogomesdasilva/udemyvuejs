@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <link rel="stylesheet" href="./bootstrap.min.css" />
+    <link rel="stylesheet" href="./bootstrap.min.css.map" />
+    <link rel="stylesheet"  href="./style.css" />
+    <style>
+  
+  </style>
+    
+    <title>methods</title>
+</head>
+<body>
+    <div id="app">
+            <div class="container">
+                <input type="text" v-model:value="message" placeholder="Digite uma Mensagem" /><br>
+                <h1>
+                    {{ message }}
+                </h1>
+                <button @click="reverterMessage()">Clique aqui para inverter a mensagem acima</button><hr>
+
+                {{ message2 }}<br>
+
+                <input type="text" @blur="replaceMessage($event.target.value)">
+
+            </div><hr>
+            
+        </div>
+       
+</div>
+    <script>
+        const app = new Vue ({
+            el: '#app',
+            data: {
+                cor: '',
+                message: '',
+                message2: '',
+            },
+        
+            computed:{
+            },
+            
+            methods: {
+                reverterMessage: function() {
+                    this.message = this.message.split('').reverse().join('')
+                },
+                replaceMessage(newMensage) {
+                    this.message2 = newMensage
+                }
+            }
+        })
+    </script>
+      
+</body>
+</html>

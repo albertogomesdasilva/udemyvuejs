@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    
+    
+    <link rel="stylesheet" href="./bootstrap.min.css" />
+    <link rel="stylesheet" href="./bootstrap.min.css.map" />
+    <link rel="stylesheet"  href="./style.css" />
+    <style>
+  
+  </style>
+    
+    <title>computedProperties Vs Methods</title>
+     ||||--------------->>  INFORMANDO UM NOVO VALOR  <<--------------||||
+</head>
+<body>
+    <div id="app">
+            <div class="container">
+             
+                Usando Computed Properties
+                <h1> firstName:  {{ person.firstName }}</h1>
+                <h2> fullName:   {{ fullName }} </h2>
+               </div><hr>
+        </div>
+</div>
+    <script>
+        const app = new Vue ({
+            el: '#app',
+            data: {
+               person: {
+                firstName: 'Alberto',
+                LastName: 'Gomes da Silva'
+               },
+            },
+        
+            computed:{
+                fullName: {
+                    get: function() {
+                    return `${this.person.firstName} ${this.person.LastName}`
+
+                    
+                },
+                
+                set: function(newValue) {
+                        
+                        let name = newValue.split(' ')
+
+                        this.person.firstName = name[0]
+
+                        this.person.LastName = name[1]
+
+                }
+            },
+        }
+       
+        // app.fullName = 'Paulo Sousa'
+        //                'Paulo Sousa'
+          
+        })
+
+      
+    </script>
+</body>
+</html>

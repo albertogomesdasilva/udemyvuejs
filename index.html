@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <link rel="stylesheet" href="./bootstrap.min.css" />
+    <link rel="stylesheet" href="./bootstrap.min.css.map" />
+    <link rel="stylesheet"  href="./style.css" />
+    <style>
+    #cor{
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+    }
+  
+  </style>
+    
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+       <div class="container">
+                {{ corr }}<hr>
+          <div id="cor" style="background-color: green;">
+            
+          </div>
+          <h1 v-bind:title="tagMessage">{{ message }} </h1>
+          <p>Meu Nome é {{ person.name }} e tenho {{ person.age }} anos</p>
+          <span v-html="tag"></span><br><br>
+          
+          <h2>Mensagem para ser exibida em letras garrafais: {{ message.toUpperCase() }}</h2>
+          
+          <hr>
+          
+            <button @click="selecionarElementoFilho()">Botão</button>
+        </div>
+        </div>
+       
+</div>
+    <script>
+        const vm = new Vue ({
+            el: '#app',
+            data: {
+                cor: '',
+                message: 'Mensagem para ser exibida',
+                person: {
+                    name: 'Alberto',
+                    age: 20
+                },
+                tag: '<button>Clique Aqui</button>',
+                tagMessage: 'Esse é o título em H1'
+                
+            },
+        
+            computed:{
+                corr() {
+                    if(this.cor == 'green') {
+                       return "verde"
+                    }else{
+                        return 'Clique no botão'
+                    }
+                }
+            },
+            
+            methods: {
+                selecionarElementoFilho() {
+                    this.cor = cor.style.backgroundColor
+                    console.log(this.cor)
+                    console.log(this.corr)
+                    
+                   }
+            }
+        })
+    </script>
+      
+</body>
+</html>

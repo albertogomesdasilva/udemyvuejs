@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap.min.css" />
+    <link rel="stylesheet" href="./bootstrap.min.css.map" />
+    <script src="./vue.js"></script>
+    <title>WATCH</title>
+</head>
+<body>
+    <div id="app" class="container">
+        <input type="text" v-model:value="country">
+
+    </div>
+
+    <script>
+         const app = new Vue ({
+            el: '#app',
+            
+            data: {
+                country: 'Brasil'
+            },
+
+            watch: {
+
+                country: function(newValue, oldValue) { 
+
+                    console.log(newValue, oldValue)
+
+                    }
+            }
+            
+        })
+
+
+    </script>
+
+</body>
+</html>
