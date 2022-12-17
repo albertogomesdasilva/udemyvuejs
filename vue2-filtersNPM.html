@@ -8,27 +8,28 @@
     <link rel="stylesheet" href="./bootstrap.min.css.map" />
     <link rel="stylesheet"  href="./style.css" />
     <script src="./vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
     <title>FILTERS'</title>
 </head>
 <body>
     <div id="app" class="container">
 
-
-
-        <h1>Nome: {{ name }} </h1>
+        <h1>Nome: {{ name | placeholder('Nome não informado') }} </h1>
         <h1>Nome com filters: {{ name | upper }} </h1>
         <hr>
-        <h2>Valor do Salário: {{ salary | real }}</h2>
+        <h2>Valor do Salário: {{ salary }} {{ salary | pluralize(['real', 'reais']) }}</h2>
         <input type="text" placeholder="Digite o valor do Salário" v-model="salary" >
-        
+
+         <p>{{ msg | truncate(50) }}</p>  <!---/* APARTI DE 50 CARACTERES APRESENTA O (...) */ -->
 
     </div>
     <script>
         const app = new Vue ({
             el: '#app',
             data: {
-                name: 'Alberto Gomes da Silva',
-                salary: 0
+                name: '',
+                salary: '',
+                msg: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus ipsa sequi quis, maxime quibusdam nihil repudiandae animi illo nesciunt quas impedit. Reprehenderit itaque aliquid mollitia provident molestias eum sed maiores.'
             },
             
             filters: {
@@ -39,15 +40,9 @@
                     return `R$ ${parseInt(value).toFixed(2)}`; 
                 }
 
-
             }
-            
-
 
         })
-
-
     </script>
-    
 </body>
 </html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap.min.css" />
+    <link rel="stylesheet" href="./bootstrap.min.css.map" />
+    <link rel="stylesheet"  href="./style.css" />
+    <script src="./vue.js"></script>
+    <title>V-IF E V-ELSE</title>
+</head>
+<body>
+    <div id="app" class="container">
+
+        <h1 v-if="show">HCode Treinamentos</h1>
+
+        <h2 v-if="tickets > 0" key="ok">Há ingressos disponíveis</h2>
+        
+        <h3 v-else-if="tickets == 1" key="almost">Ingressos quase esgotados!</h3>
+        
+        <h2 v-else="tickets > 0" key="empty">Ingressos esgotados...</h2>
+
+        <hr>
+
+
+    </div>
+
+    <script>
+        const app = new Vue ({
+            el: '#app',
+
+            data: {
+                show: true,
+                tickets: 100
+            }
+
+        })
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap.min.css" />
+    <link rel="stylesheet" href="./bootstrap.min.css.map" />
+    <link rel="stylesheet"  href="./style.css" />
+    <script src="./vue.js"></script>
+    <title>V-HTML</title>
+</head>
+<body>
+    <div id="app" class="container">
+       <div v-html="headerHTML">
+
+       </div>
+
+
+    </div>
+
+    <script>
+        const app = new Vue ({
+            el: '#app',
+
+            data: {
+                codigo: '<button> Clique Aqui </button><br />',
+                headerHTML: `
+                            <header>
+                                <h1 style="text-align: center">HCode Treinamentos  </h1> 
+                                    
+                                    <img src="./logo-hcode.svg" style="margin: auto 30%">
+                            </header>
+                            
+                            `
+              
+            }
+
+        })
+
+
+    </script>
+    
+</body>
+</html>
